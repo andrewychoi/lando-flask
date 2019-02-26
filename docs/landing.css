@@ -1,0 +1,23 @@
+body {
+	background-color: #f45642;
+	color: #eee;
+	font-family: "Comfortaa", Helvetica, sans-serif;
+	font-size: 1.5rem;
+	padding: 10px;
+}
+
+/* Ensure all links stay the same color */
+a:link, a:active, a:visited, a:hover {
+	text-decoration: underline;
+	color: inherit;
+}
+
+	
+input.form-control {
+	font-size: 1.5rem;
+}
+
+.footer {
+	position: fixed;
+	bottom: 10px;
+}
