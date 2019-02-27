@@ -4,11 +4,15 @@
 #
 #    pip-compile requirements.in
 #
+argh==0.26.2              # via watchdog
 click==7.0                # via flask
 flask-sqlalchemy==2.3.2
 flask==1.0.2
 itsdangerous==1.1.0       # via flask
 jinja2==2.10
 markupsafe==1.1.1         # via jinja2
+pathtools==0.1.2          # via watchdog
+pyyaml==3.13              # via watchdog
 sqlalchemy==1.2.18        # via flask-sqlalchemy
+watchdog[watchmedo]==0.9.0
 werkzeug==0.14.1          # via flask
