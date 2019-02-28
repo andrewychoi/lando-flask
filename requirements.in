@@ -1,4 +1,7 @@
 flask
 flask-sqlalchemy
 jinja2
-watchdog[watchmedo]
+
+watchdog
+
+pytest
