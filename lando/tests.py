@@ -7,11 +7,11 @@ from lando import create_app
 
 
 class UserTest(TestCase):
-    SQLALCHEMY_DATABASE_URI = "sqlite:///tmp/lando.db"
+    SQLALCHEMY_DATABASE_URI = "sqlite:////tmp/lando.db"
     TESTING = True
 
     def create_app(self):
-        app = create_app()
+        app = create_app(self)
         return app
 
     def setUp(self):
