@@ -1,42 +1,33 @@
 import logging
-import pytest
-import os
-import tempfile
 
-import lando
-from lando.models import User
+from flask_testing import TestCase
 
-
-@pytest.fixture
-def database():
-    db_fd, lando.app.config['DATABASE'] = tempfile.mkstemp()
-    lando.app.config['TESTING'] = True
-
-    with lando.app.app_context():
-        lando.init_db()
-
-    yield database
-
-    # teardown
-    os.close(db_fd)
-    os.unlink(lando.app.config['DATABASE'])
+from lando.models import db, User
+from lando import create_app
 
 
-@pytest.fixture
-def user_fixtures(database):
-    from lando.models import db
-    users = [User(username="andrew", email="andrew@choi.com")]
-    for user in users:
-        db.session.add(user)
-    db.session.commit()
+class UserTest(TestCase):
+    SQLALCHEMY_DATABASE_URI = "sqlite:///tmp/lando.db"
+    TESTING = True
 
-    yield
+    def create_app(self):
+        app = create_app()
+        return app
 
-    # teardown
-    for user in User.query.all():
-        db.session.remove(user)
-    db.session.commit()
+    def setUp(self):
+        db.init_app(self.app)
+        db.drop_all()
+        db.create_all()
 
+        users = [User(username="andrew", email="andrew@choi.com")]
+        for user in users:
+            db.session.add(user)
+        db.session.commit()
 
-def test_users(user_fixtures):
-    logging.info(User.query.all())
+    def test_users(self):
+        logging.error(User.query.all())
+
+    def tearDown(self):
+        for user in User.query.all():
+            db.session.delete(user)
+        db.session.commit()

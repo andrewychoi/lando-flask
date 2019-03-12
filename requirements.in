@@ -1,7 +1,6 @@
 flask
 flask-sqlalchemy
+flask-testing
 jinja2
 
 watchdog
-
-pytest
