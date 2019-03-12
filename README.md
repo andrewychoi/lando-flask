@@ -16,4 +16,3 @@ To run app:
 
 To run tests:
 > ./test.sh
-
