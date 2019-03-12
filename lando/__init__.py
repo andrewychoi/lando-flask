@@ -20,8 +20,7 @@ def create_app(test_config=None):
 
     db.init_app(app)
 
-    @app.route("/")
-    def hello():
-        return "Hello World!"
+    from . import main
+    app.register_blueprint(main.bp)
 
     return app

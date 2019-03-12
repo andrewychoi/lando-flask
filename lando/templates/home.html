@@ -1,0 +1,46 @@
+{% extends "navbar.html" %}
+
+{% block body %}
+<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">Welcome to Lando!</h1>
+  <p class="lead"></p>
+</div>
+<div class="container">
+	<div class="row text-center justify-content-center">
+		<div class="col-12">
+			<p>Lando helps you keep up with the people that matter to you.</p>
+			<p>Who do you want to keep in touch with?</p>
+		</div>
+		<div class="col-6">
+			<ul class="nav nav-pills justify-content-center" id="myTab" role="tablist">
+				{% for tab, description in tabs.items() %}
+				<li class="nav-item">
+					<a class="nav-link" id="{{ tab }}-tab" data-toggle="tab" href="#{{ tab }}" role="tab" aria-controls="{{ tab }}">{{ tab }}</a>
+				</li>
+				{% endfor %}
+			</ul>
+			<br>
+			<div class="tab-content" id="myTabContent">
+				{% for tab, description in tabs.items() %}
+				<div class="tab-pane fade show" id="{{ tab }}" role="tabpanel" aria-labelledby="{{ tab }}-tab">
+					<div class="card">
+						{# <img class="card-img-top" src="..." alt="Card image cap"> #}
+						<div class="card-body">
+							{# <h5 class="card-title">Card title</h5> #}
+							<p class="card-text">{{ description }}</p>
+							<a href="#" class="btn btn-primary">Go somewhere</a>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	
+
+</div>
+</div>
+{% endblock %}
+
