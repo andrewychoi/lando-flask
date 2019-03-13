@@ -1,0 +1,13 @@
+.navbar .navbar-brand {
+	font-family: "Comfortaa", Helvetica, sans-serif;
+	color: #f06050;
+	font-weight: bold;
+}
+
+.navbar {
+	/*background-color: #f06050;*/
+}
+
+body {
+	font-family: "Comfortaa", Helvetica, sans-serif;	
+}
