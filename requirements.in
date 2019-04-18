@@ -5,5 +5,7 @@ jinja2
 
 watchdog
 
+honcho
+
 # for security:
 pyyaml>=4.2b1

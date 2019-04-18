@@ -9,6 +9,7 @@ click==7.0                # via flask
 flask-sqlalchemy==2.3.2
 flask-testing==0.7.1
 flask==1.0.2
+honcho==1.0.1
 itsdangerous==1.1.0       # via flask
 jinja2==2.10
 markupsafe==1.1.1         # via jinja2
