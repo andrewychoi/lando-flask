@@ -25,7 +25,7 @@ class UserTest(TestCase):
         db.session.commit()
 
     def test_users(self):
-        logging.error(User.query.all())
+        self.assertTrue(User.query.count() == 1)
 
     def tearDown(self):
         for user in User.query.all():

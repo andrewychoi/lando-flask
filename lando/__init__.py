@@ -1,6 +1,7 @@
 from flask import Flask
+from flask_login import LoginManager
 
-from lando.models import db
+from lando.models import db, login_manager
 
 
 def create_app(test_config=None):
@@ -20,7 +21,12 @@ def create_app(test_config=None):
 
     db.init_app(app)
 
+    login_manager.init_app(app)
+    login_manager.login_view = "main.login"
+
     from . import main
     app.register_blueprint(main.bp)
+    from . import meetings
+    app.register_blueprint(meetings.bp, url_prefix="/meetings")
 
     return app

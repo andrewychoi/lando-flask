@@ -10,6 +10,15 @@ def hello():
     return "Hello World!"
 
 
+@bp.route("/login", methods=["GET"])
+def login():
+    return "Needs to login"
+
+@bp.route("/login", methods=["POST"])
+def login():
+    return "Needs to login"
+
+
 @bp.route("/home")
 def home():
     td = {

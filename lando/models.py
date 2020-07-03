@@ -1,9 +1,11 @@
+from flask_login import LoginManager, UserMixin
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
+login_manager = LoginManager()
 
 
-class User(db.Model):
+class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String, unique=True, nullable=False)
     email = db.Column(db.String, unique=True, nullable=False)
@@ -15,6 +17,10 @@ class User(db.Model):
     def __repr__(self):
         return '<User %r>' % self.username
 
+@login_manager.user_loader
+def load_user(user_id):
+    user = User.query.get(user_id)
+    return user
 
 class Person(db.Model):
     id = db.Column(db.Integer, primary_key=True)
